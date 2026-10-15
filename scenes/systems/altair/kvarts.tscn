@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://sysaltairkvarts"]
+
+[ext_resource type="PackedScene" uid="uid://cw132167arxmb" path="res://scenes/space.tscn" id="1_space"]
+[ext_resource type="Script" uid="uid://bspawnanchor01" path="res://scripts/spawn_anchor.gd" id="2_anchor"]
+
+[node name="KvartsSpace" instance=ExtResource("1_space")]
+planet_id = 1
+system_id = 2
+
+[node name="Spawns" type="Node3D" parent="."]
+
+[node name="Planet" type="Marker3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -360, -2100)
+gizmo_extents = 390.0
+script = ExtResource("2_anchor")
+kind = 4
+planet_radius = 390.0
+
+[node name="Station" type="Marker3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -370.0, -260.0, -1590.0)
+gizmo_extents = 90.0
+script = ExtResource("2_anchor")
+kind = 0
+
+[node name="MeteorField1" type="Marker3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 215.0, 30.0, 180.0)
+gizmo_extents = 47.0
+script = ExtResource("2_anchor")
+kind = 2
+meteor_count = 12
+field_radius = 47.0
+
+[node name="MeteorField2" type="Marker3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -270.0, 20.0, 160.0)
+gizmo_extents = 53.0
+script = ExtResource("2_anchor")
+kind = 2
+meteor_count = 14
+field_radius = 53.0
+
+[node name="Pirate1" type="Marker3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 185.0, 40.0, -60.0)
+gizmo_extents = 36.0
+script = ExtResource("2_anchor")
+kind = 3
+
+[node name="Pirate2" type="Marker3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -145.0, 10.0, -240.0)
+gizmo_extents = 36.0
+script = ExtResource("2_anchor")
+kind = 3
+
+[node name="Pirate3" type="Marker3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.0, 20.0, 175.0)
+gizmo_extents = 36.0
+script = ExtResource("2_anchor")
+kind = 3

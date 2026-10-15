@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://sysheliosisice0"]
+
+[ext_resource type="PackedScene" uid="uid://cw132167arxmb" path="res://scenes/space.tscn" id="1_space"]
+[ext_resource type="Script" uid="uid://bspawnanchor01" path="res://scripts/spawn_anchor.gd" id="2_anchor"]
+
+[node name="IceSpace" instance=ExtResource("1_space")]
+planet_id = 3
+system_id = 0
+
+[node name="Spawns" type="Node3D" parent="."]
+
+[node name="Planet" type="Marker3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -360, -2100)
+gizmo_extents = 390.0
+script = ExtResource("2_anchor")
+kind = 4
+planet_radius = 390.0
+
+[node name="Station" type="Marker3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -410.0, -210.0, -1600.0)
+gizmo_extents = 90.0
+script = ExtResource("2_anchor")
+kind = 0
+
+[node name="Warp" type="Marker3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 430.0, -219.0, -1631.0)
+gizmo_extents = 90.0
+script = ExtResource("2_anchor")
+kind = 1
+
+[node name="MeteorField1" type="Marker3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 240.0, 15.0, 140.0)
+gizmo_extents = 58.0
+script = ExtResource("2_anchor")
+kind = 2
+meteor_count = 15
+field_radius = 58.0
+
+[node name="MeteorField2" type="Marker3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -250.0, 25.0, 170.0)
+gizmo_extents = 44.0
+script = ExtResource("2_anchor")
+kind = 2
+meteor_count = 11
+field_radius = 44.0
+
+[node name="Pirate1" type="Marker3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 160.0, 20.0, -70.0)
+gizmo_extents = 36.0
+script = ExtResource("2_anchor")
+kind = 3
+
+[node name="Pirate2" type="Marker3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -200.0, 35.0, -230.0)
+gizmo_extents = 36.0
+script = ExtResource("2_anchor")
+kind = 3
+
+[node name="Pirate3" type="Marker3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.0, 10.0, 220.0)
+gizmo_extents = 36.0
+script = ExtResource("2_anchor")
+kind = 3

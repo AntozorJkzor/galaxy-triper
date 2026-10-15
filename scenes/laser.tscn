@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://b2hgybf71iymt"]
+
+[ext_resource type="Script" uid="uid://jtaouvbbw1qw" path="res://scripts/laser.gd" id="1_xmihv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_a7dhc"]
+size = Vector3(0.12, 0.12, 2.6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jjj73"]
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(1, 0.16470589, 0.16470589, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_412cd"]
+size = Vector3(0.14, 0.14, 2.6)
+
+[node name="Laser" type="Area3D" unique_id=2043699501]
+collision_layer = 4
+monitorable = false
+script = ExtResource("1_xmihv")
+
+[node name="Beam" type="MeshInstance3D" parent="." unique_id=369559316]
+mesh = SubResource("BoxMesh_a7dhc")
+surface_material_override/0 = SubResource("StandardMaterial3D_jjj73")
+
+[node name="Glow" type="OmniLight3D" parent="." unique_id=2049207977]
+light_color = Color(1, 0.23137255, 0.23137255, 1)
+light_energy = 4.5
+omni_range = 8.0
+
+[node name="CollisionShape" type="CollisionShape3D" parent="." unique_id=1927844601]
+shape = SubResource("BoxShape3D_412cd")

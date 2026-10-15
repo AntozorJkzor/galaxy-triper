@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://bpirateship001"]
+
+[ext_resource type="Script" uid="uid://c1o0qgr36rv7h" path="res://scripts/pirate_ship.gd" id="1_pirate"]
+[ext_resource type="PackedScene" uid="uid://cmjd1nnjuodbi" path="res://assets/models/starship/ship1.glb" id="2_model"]
+[ext_resource type="Script" uid="uid://cu18aaysw68lp" path="res://scripts/pirate_overhead.gd" id="3_over"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_body"]
+size = Vector3(7.4, 3.6, 9.2)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jet"]
+direction = Vector3(0, 0, 1)
+spread = 14.0
+initial_velocity_min = 10.0
+initial_velocity_max = 18.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.18
+scale_max = 0.55
+color = Color(1, 0.42, 0.18, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_bar"]
+size = Vector2(2.2, 0.14)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hbg"]
+transparency = 1
+no_depth_test = true
+shading_mode = 0
+albedo_color = Color(0.07, 0.08, 0.1, 0.88)
+billboard_mode = 1
+disable_receive_shadows = true
+render_priority = 10
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hfill"]
+no_depth_test = true
+shading_mode = 0
+albedo_color = Color(0.86, 0.18, 0.18, 1)
+billboard_mode = 1
+disable_receive_shadows = true
+render_priority = 11
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sbg"]
+transparency = 1
+no_depth_test = true
+shading_mode = 0
+albedo_color = Color(0.07, 0.08, 0.1, 0.88)
+billboard_mode = 1
+disable_receive_shadows = true
+render_priority = 10
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sfill"]
+no_depth_test = true
+shading_mode = 0
+albedo_color = Color(0.22, 0.62, 0.95, 1)
+billboard_mode = 1
+disable_receive_shadows = true
+render_priority = 11
+
+[node name="PirateShip" type="CharacterBody3D"]
+collision_mask = 1
+motion_mode = 1
+script = ExtResource("1_pirate")
+
+[node name="Model" parent="." instance=ExtResource("2_model")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -2.22, 0)
+
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_body")
+
+[node name="EngineTrail" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7391595, -0.36501798, 4.739879)
+amount = 56
+lifetime = 0.16
+randomness = 0.08
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_jet")
+
+[node name="EngineTrail2" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.96587026, -0.4300843, 4.752988)
+amount = 56
+lifetime = 0.16
+randomness = 0.08
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_jet")
+
+[node name="Overhead" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.45, 0)
+script = ExtResource("3_over")
+
+[node name="NameLabel" type="Label3D" parent="Overhead"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.58, 0)
+pixel_size = 0.016
+billboard = 1
+no_depth_test = true
+modulate = Color(1, 0.42, 0.32, 1)
+text = "PIRATE"
+font_size = 64
+outline_size = 12
+outline_modulate = Color(0.05, 0.02, 0.02, 1)
+
+[node name="HealthBg" type="MeshInstance3D" parent="Overhead"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_bar")
+surface_material_override/0 = SubResource("StandardMaterial3D_hbg")
+
+[node name="HealthFill" type="MeshInstance3D" parent="Overhead"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0.02)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_bar")
+surface_material_override/0 = SubResource("StandardMaterial3D_hfill")
+
+[node name="ShieldBg" type="MeshInstance3D" parent="Overhead"]
+cast_shadow = 0
+mesh = SubResource("QuadMesh_bar")
+surface_material_override/0 = SubResource("StandardMaterial3D_sbg")
+
+[node name="ShieldFill" type="MeshInstance3D" parent="Overhead"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.02)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_bar")
+surface_material_override/0 = SubResource("StandardMaterial3D_sfill")

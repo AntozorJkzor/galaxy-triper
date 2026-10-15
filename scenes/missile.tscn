@@ -1,0 +1,14 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/missile.gd" id="1_missile"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hit"]
+radius = 0.55
+
+[node name="Missile" type="Area3D"]
+collision_layer = 4
+monitorable = false
+script = ExtResource("1_missile")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_hit")

@@ -1,0 +1,322 @@
+[gd_scene format=3 uid="uid://cw132167arxmb"]
+
+[ext_resource type="Script" uid="uid://cc3w7y0rnhocb" path="res://scripts/starfield.gd" id="1_n0118"]
+[ext_resource type="PackedScene" path="res://scenes/ships/capsule.tscn" id="2_ocmas"]
+[ext_resource type="Script" uid="uid://dknja42gwrnel" path="res://scripts/space_hud.gd" id="6_85sbg"]
+[ext_resource type="Script" uid="uid://gathharkpdix" path="res://scripts/touch_controls.gd" id="7_touch"]
+[ext_resource type="Script" uid="uid://cb3mk4iokekg2" path="res://scripts/planet_location.gd" id="8_planet"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_n0118"]
+sky_top_color = Color(0.011764706, 0.015686275, 0.039215688, 1)
+sky_horizon_color = Color(0.019607844, 0.023529412, 0.05882353, 1)
+sky_curve = 0.02
+ground_bottom_color = Color(0.011764706, 0.015686275, 0.039215688, 1)
+ground_horizon_color = Color(0.019607844, 0.023529412, 0.05882353, 1)
+
+[sub_resource type="Sky" id="Sky_ocmas"]
+sky_material = SubResource("ProceduralSkyMaterial_n0118")
+
+[sub_resource type="Environment" id="Environment_7wx0h"]
+resource_local_to_scene = true
+background_mode = 2
+sky = SubResource("Sky_ocmas")
+ambient_light_source = 2
+ambient_light_color = Color(0.07058824, 0.09803922, 0.17254902, 1)
+ambient_light_energy = 0.45
+tonemap_mode = 2
+tonemap_exposure = 1.05
+glow_enabled = true
+glow_intensity = 0.7
+glow_strength = 0.9
+glow_bloom = 0.12
+fog_enabled = true
+fog_light_color = Color(0.02745098, 0.043137256, 0.09411765, 1)
+fog_light_energy = 0.6
+fog_density = 0.00025
+
+[sub_resource type="SphereMesh" id="SphereMesh_g7h33"]
+radius = 4.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y1g2g"]
+albedo_color = Color(1, 0.9647059, 0.8156863, 1)
+emission_enabled = true
+emission = Color(1, 0.8352941, 0.41568628, 1)
+emission_energy_multiplier = 12.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dtwn4"]
+bg_color = Color(0.101960786, 0.1254902, 0.1882353, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x2olr"]
+bg_color = Color(0.7764706, 0.15686275, 0.15686275, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1gvwg"]
+bg_color = Color(0.101960786, 0.1254902, 0.1882353, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n0118"]
+bg_color = Color(0.11764706, 0.53333336, 0.8980392, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_17l4g"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.08235294, 0.1254902, 0.2, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.83137256, 0.7058824, 0.41568628, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hcqao"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.14117648, 0.20392157, 0.29803923, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.9411765, 0.84313726, 0.5411765, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mw0qc"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.0627451, 0.09411765, 0.1254902, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.5411765, 0.627451, 0.72156864, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ykhyk"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.10980392, 0.16470589, 0.23529412, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.83137256, 0.7058824, 0.41568628, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="Space" type="Node3D" unique_id=1829966476]
+script = ExtResource("8_planet")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1659595606]
+environment = SubResource("Environment_7wx0h")
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=143662249]
+transform = Transform3D(0.76604444, -0.3017705, 0.56754774, 0, 0.88294756, 0.46947157, -0.6427876, -0.3596361, 0.67637706, 0, 0, 0)
+light_color = Color(1, 0.95686275, 0.8392157, 1)
+light_energy = 1.6
+shadow_enabled = true
+
+[node name="Starfield" type="MultiMeshInstance3D" parent="." unique_id=57715193]
+script = ExtResource("1_n0118")
+
+[node name="World" type="Node3D" parent="." unique_id=48500649]
+
+[node name="SunCore" type="MeshInstance3D" parent="." unique_id=1334445817]
+transform = Transform3D(18, 0, 0, 0, 18, 0, 0, 0, 18, 900, 420, -700)
+mesh = SubResource("SphereMesh_g7h33")
+surface_material_override/0 = SubResource("StandardMaterial3D_y1g2g")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=270943946]
+layer = 10
+script = ExtResource("6_85sbg")
+
+[node name="Root" type="Control" parent="HUD" unique_id=198544929]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Stats" type="VBoxContainer" parent="HUD/Root" unique_id=1096763496]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 0
+offset_left = 28.0
+offset_top = 24.0
+offset_right = 308.0
+offset_bottom = 78.0
+theme_override_constants/separation = 8
+
+[node name="SpeedLabel" type="Label" parent="HUD/Root/Stats" unique_id=317795046]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8392157, 0.9529412, 1, 1)
+theme_override_font_sizes/font_size = 22
+text = "SPEED  0 u/s"
+
+[node name="ThrottleBar" type="ProgressBar" parent="HUD/Root/Stats" unique_id=79563685]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 12)
+layout_mode = 2
+show_percentage = false
+
+[node name="HealthLabel" type="Label" parent="HUD/Root/Stats" unique_id=37634140]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.47843137, 0.47843137, 1)
+theme_override_font_sizes/font_size = 16
+text = "HULL  100"
+
+[node name="HealthBar" type="ProgressBar" parent="HUD/Root/Stats" unique_id=1824204866]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 12)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_dtwn4")
+theme_override_styles/fill = SubResource("StyleBoxFlat_x2olr")
+value = 100.0
+show_percentage = false
+
+[node name="ShieldLabel" type="Label" parent="HUD/Root/Stats" unique_id=1512694765]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.49411765, 0.78431374, 1, 1)
+theme_override_font_sizes/font_size = 16
+text = "SHIELDS  100"
+
+[node name="ShieldBar" type="ProgressBar" parent="HUD/Root/Stats" unique_id=807761395]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 12)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_1gvwg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_n0118")
+value = 100.0
+show_percentage = false
+
+[node name="BoostLabel" type="Label" parent="HUD/Root/Stats" unique_id=2046372859]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.49411765, 0.8784314, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "BOOST"
+
+[node name="HintLabel" type="Label" parent="HUD/Root" unique_id=1104747898]
+layout_mode = 0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -44.0
+offset_bottom = -20.0
+theme_override_colors/font_color = Color(0.60784316, 0.7058824, 0.78431374, 1)
+theme_override_font_sizes/font_size = 15
+text = "LMB fire   RMB missiles   W/S throttle   mouse look   F travel   Esc pause"
+horizontal_alignment = 1
+
+[node name="Crosshair" type="Label" parent="HUD/Root" unique_id=532887691]
+visible = false
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -11.5
+offset_right = 5.0
+offset_bottom = 11.5
+theme_override_colors/font_color = Color(0.72156864, 0.9019608, 1, 1)
+theme_override_font_sizes/font_size = 28
+text = "+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TouchControls" type="Control" parent="HUD/Root" unique_id=2090632412]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("7_touch")
+
+[node name="PausePanel" type="Control" parent="HUD/Root" unique_id=18602125]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Dim" type="ColorRect" parent="HUD/Root/PausePanel" unique_id=1931540226]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.02, 0.03, 0.08, 0.72)
+
+[node name="PauseBox" type="VBoxContainer" parent="HUD/Root/PausePanel" unique_id=1000529248]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -23.5
+offset_right = 4.0
+offset_bottom = 23.5
+theme_override_constants/separation = 16
+
+[node name="PauseTitle" type="Label" parent="HUD/Root/PausePanel/PauseBox" unique_id=286259276]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9490196, 0.827451, 0.5411765, 1)
+theme_override_font_sizes/font_size = 36
+text = "PAUSE"
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="HUD/Root/PausePanel/PauseBox" unique_id=1431199903]
+custom_minimum_size = Vector2(300, 48)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_17l4g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hcqao")
+text = "RESUME"
+
+[node name="MenuButton" type="Button" parent="HUD/Root/PausePanel/PauseBox" unique_id=1093913854]
+custom_minimum_size = Vector2(300, 48)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_mw0qc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ykhyk")
+text = "MAIN MENU"
+
+[node name="PlayerShip" parent="." unique_id=526058505 instance=ExtResource("2_ocmas")]

@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://boqgxi7opeunc"]
+
+[ext_resource type="Script" uid="uid://clm84tx1ve6dy" path="res://scripts/player_ship.gd" id="1_ship"]
+[ext_resource type="PackedScene" uid="uid://blxfxfvltuci2" path="res://assets/models/starship/bigboy.glb" id="2_model"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_body"]
+size = Vector3(11.2, 5.2, 14.4)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jet"]
+direction = Vector3(0, 0, 1)
+spread = 14.0
+initial_velocity_min = 10.0
+initial_velocity_max = 18.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.18
+scale_max = 0.55
+color = Color(0.4509804, 0.84313726, 1, 1)
+
+[node name="Bigboy" type="CharacterBody3D" unique_id=245904722]
+collision_layer = 2
+motion_mode = 1
+script = ExtResource("1_ship")
+
+[node name="Model" parent="." unique_id=1154885647 instance=ExtResource("2_model")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, -2.8, 0)
+
+[node name="CollisionShape" type="CollisionShape3D" parent="." unique_id=394276077]
+shape = SubResource("BoxShape3D_body")
+
+[node name="EngineTrail" type="GPUParticles3D" parent="." unique_id=797086554]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0941143, -2.0829778, -0.03082037)
+amount = 56
+lifetime = 0.16
+randomness = 0.08
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_jet")
+
+[node name="EngineTrail2" type="GPUParticles3D" parent="." unique_id=486820192]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11115432, -2.1152008, -0.1830163)
+amount = 56
+lifetime = 0.16
+randomness = 0.08
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_jet")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1364359807]
+transform = Transform3D(1, 0, 0, 0, 0.9781476, 0.2079117, 0, -0.2079117, 0.9781476, 0, 5.6, 18)
+current = true
+near = 0.15
+far = 5000.0
+
+[node name="LaserLeft" type="Marker3D" parent="." unique_id=1065097688]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4, -0.2, -6.2)
+gizmo_extents = 2.4
+
+[node name="LaserMid" type="Marker3D" parent="." unique_id=2061471014]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15, -6.4)
+gizmo_extents = 2.4
+
+[node name="LaserRight" type="Marker3D" parent="." unique_id=175177955]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4, -0.2, -6.2)
+gizmo_extents = 2.4
+
+[node name="Missile" type="Marker3D" parent="." unique_id=71847028]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55, -0.5, -5.6)
+gizmo_extents = 3.0
+
+[node name="Missile2" type="Marker3D" parent="." unique_id=793110015]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, -0.5, -5.6)
+gizmo_extents = 3.0

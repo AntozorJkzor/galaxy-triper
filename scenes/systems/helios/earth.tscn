@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://cxknt8xhq38j2"]
+
+[ext_resource type="PackedScene" uid="uid://cw132167arxmb" path="res://scenes/space.tscn" id="1_space"]
+[ext_resource type="Script" uid="uid://cgylyjo142e53" path="res://scripts/spawn_anchor.gd" id="2_anchor"]
+
+[node name="EarthSpace" unique_id=1014924374 instance=ExtResource("1_space")]
+
+[node name="Starfield" parent="." index="2" unique_id=57715193]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 604.12427, 0, 0)
+
+[node name="Spawns" type="Node3D" parent="." index="7" unique_id=621453044]
+
+[node name="Station" type="Marker3D" parent="Spawns" index="0" unique_id=434164527]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -430, -224, -1631)
+gizmo_extents = 90.0
+script = ExtResource("2_anchor")
+kind = 0
+
+[node name="MeteorField1" type="Marker3D" parent="Spawns" index="1" unique_id=76088799]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 260, 40, 160)
+gizmo_extents = 48.0
+script = ExtResource("2_anchor")
+kind = 2
+
+[node name="MeteorField2" type="Marker3D" parent="Spawns" index="2" unique_id=314106854]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -220, 10, 200)
+gizmo_extents = 55.0
+script = ExtResource("2_anchor")
+kind = 2
+meteor_count = 14
+field_radius = 55.0
+
+[node name="MeteorField1" type="Marker3D" parent="Spawns/MeteorField2" index="0" unique_id=1581816986]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 260, 40, -831.41626)
+gizmo_extents = 48.0
+script = ExtResource("2_anchor")
+kind = 2
+
+[node name="MeteorField2" type="Marker3D" parent="Spawns/MeteorField2" index="1" unique_id=1778598195]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -220, 10, -791.41626)
+gizmo_extents = 55.0
+script = ExtResource("2_anchor")
+kind = 2
+meteor_count = 14
+field_radius = 55.0
+
+[node name="Pirate1" type="Marker3D" parent="Spawns" index="3" unique_id=1105086331]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 180, 40, -90)
+gizmo_extents = 36.0
+script = ExtResource("2_anchor")
+
+[node name="Pirate2" type="Marker3D" parent="Spawns" index="4" unique_id=1495240402]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150, 25, -210)
+gizmo_extents = 36.0
+script = ExtResource("2_anchor")
+
+[node name="Pirate3" type="Marker3D" parent="Spawns" index="5" unique_id=706340568]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, -15, 200)
+gizmo_extents = 36.0
+script = ExtResource("2_anchor")
+
+[node name="Pirate1" type="Marker3D" parent="Spawns/Pirate3" index="0" unique_id=69241121]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 180, 40, -90)
+gizmo_extents = 36.0
+script = ExtResource("2_anchor")
+
+[node name="Pirate2" type="Marker3D" parent="Spawns/Pirate3" index="1" unique_id=1056336397]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150, 25, -210)
+gizmo_extents = 36.0
+script = ExtResource("2_anchor")
+
+[node name="Pirate3" type="Marker3D" parent="Spawns/Pirate3" index="2" unique_id=1557963339]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, -15, 200)
+gizmo_extents = 36.0
+script = ExtResource("2_anchor")
+
+[node name="Pirate1" type="Marker3D" parent="Spawns/Pirate3/Pirate3" index="0" unique_id=621413436]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 180, 40, -90)
+gizmo_extents = 36.0
+script = ExtResource("2_anchor")
+
+[node name="Pirate2" type="Marker3D" parent="Spawns/Pirate3/Pirate3" index="1" unique_id=1825379099]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150, 25, -210)
+gizmo_extents = 36.0
+script = ExtResource("2_anchor")
+
+[node name="Pirate3" type="Marker3D" parent="Spawns/Pirate3/Pirate3" index="2" unique_id=1536283091]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, -15, 200)
+gizmo_extents = 36.0
+script = ExtResource("2_anchor")
+
+[node name="Pirate1" type="Marker3D" parent="Spawns/Pirate3/Pirate3/Pirate3" index="0" unique_id=1981378979]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 180, 40, -90)
+gizmo_extents = 36.0
+script = ExtResource("2_anchor")
+
+[node name="Pirate2" type="Marker3D" parent="Spawns/Pirate3/Pirate3/Pirate3" index="1" unique_id=989903493]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150, 25, -210)
+gizmo_extents = 36.0
+script = ExtResource("2_anchor")
+
+[node name="Pirate3" type="Marker3D" parent="Spawns/Pirate3/Pirate3/Pirate3" index="2" unique_id=1939274647]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, -15, 200)
+gizmo_extents = 36.0
+script = ExtResource("2_anchor")
+
+[node name="Pirate1" type="Marker3D" parent="Spawns/Pirate3/Pirate3/Pirate3/Pirate3" index="0" unique_id=1536224343]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 180, 40, -90)
+gizmo_extents = 36.0
+script = ExtResource("2_anchor")
+
+[node name="Pirate2" type="Marker3D" parent="Spawns/Pirate3/Pirate3/Pirate3/Pirate3" index="1" unique_id=1759034841]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150, 25, -210)
+gizmo_extents = 36.0
+script = ExtResource("2_anchor")
+
+[node name="Pirate3" type="Marker3D" parent="Spawns/Pirate3/Pirate3/Pirate3/Pirate3" index="2" unique_id=1036541371]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, -15, 200)
+gizmo_extents = 36.0
+script = ExtResource("2_anchor")
+
+[node name="Planet" type="Marker3D" parent="Spawns" index="6" unique_id=541168436]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -360, -2100)
+gizmo_extents = 390.0
+script = ExtResource("2_anchor")
+kind = 4
